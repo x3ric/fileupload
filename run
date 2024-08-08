@@ -1,0 +1,17 @@
+#!/bin/env bash
+need() {
+    if ! command -v "$1" > /dev/null 2>&1; then
+        if command -v pacman > /dev/null 2>&1; then
+            sudo pacman -Sy --needed --noconfirm "$1" > /dev/null 2>&1
+        else
+            echo "install $1 with your distro pkgmanager"
+        fi
+    fi
+}
+need python-flask
+if [ -f "$CERT" ]; then
+    need gunicorn
+    bash -c './app.py && gunicorn -b 0.0.0.0:9696 --certfile='$CERT' --keyfile='$CERT' app:app'
+else
+    python3 ./app.py
+fi

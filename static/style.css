@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'OCRA';
+    src: url('/static/OCRA.ttf') format('truetype');
+}
+
+* {
+    font-family: 'OCRA', sans-serif; 
+}
+
+body {
+    background-color: #000000; 
+    color: #fff; 
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 20px; 
+    color: #B37CFC; 
+}
+
+file {
+    background-color: #222; 
+    color: #ccc; 
+}
+
+pre {
+    background-color: #222; 
+    color: #ccc;
+    padding: 10px;
+    border: 1px solid #333;
+    white-space: pre-wrap; 
+    margin-bottom: 20px; 
+}
+
+form {
+    display: inline-grid;
+    margin-bottom: 20px; 
+}
+
+input[type="file"] {
+    margin-bottom: 10px; 
+    background-color: #af70ff; 
+    color: #fff; 
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s; 
+}
+
+input[type="file"]:hover {
+    background-color: #8e48cc; 
+}
+
+button[type="submit"] {
+    background-color: #8C00FF; 
+    color: #fff; 
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+
+button[type="submit"]:hover {
+    background-color: #8A2CB6; 
+}
+
+.custom-drop-area {
+    border: 2px dashed #8C00FF; 
+    padding: 20px;
+    text-align: center;
+}
+
+.custom-drop-area.highlight {
+    background-color: #CC00FF; 
+}
+
+
+ul {
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    height: 100%; 
+}
+
+
+ul li {
+    padding: 10px 0; 
+    border-bottom: 1px solid #222222; 
+    text-align: center; 
+}
+
+
+ul li:last-child {
+    border-bottom: none; 
+}
+
+
+.file-list {
+    padding: 0;
+}
+
+.file-list li {
+    margin-bottom: 10px; 
+}
+
+a {
+    color: #A200FF; 
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: #D63141;
+    font-weight: bold;
+}

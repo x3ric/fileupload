@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Browser</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ocr+A&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>File Browser</h1>
+        <h2>Upload a File</h2>
+        <p>To upload a file using curl from the terminal, run the following command:</p>
+        <pre><code>curl -X POST -F "file=@./file.txt" {{ upload_url }}</code></pre>
+        <p>Replace <code>file.txt</code> with the path to the file you want to upload.</p>
+        <h2>Or Use the Form</h2>
+        <form id="upload-form" method="POST" enctype="multipart/form-data">
+            <p id="selected-file"></p>
+            <div id="drop-area" class="custom-drop-area">
+                <label for="file-upload" class="custom-file-upload">
+                    Drag and drop files here or click to browse
+                </label>
+                <input id="file-upload" type="file" name="file" style="display: none;">
+            </div>
+            <button type="submit">Upload</button>
+        </form>    
+        <h2>Uploaded Files</h2>
+        <ul class="file-list">
+            {% for file in files %}
+                <li><a href="{{ url_for('download_file', filename=file) }}">{{ file }}</a></li>
+            {% endfor %}
+        </ul>
+        {% if error %}
+            <p class="error">Error: {{ error }}</p>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
