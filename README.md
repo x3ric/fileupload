@@ -1,5 +1,9 @@
 <div align="center">
 
+# fileupload
+
+> Note: intended for localhost only; not hardened for public deployment.
+
 ### Installation
 
 <pre>
